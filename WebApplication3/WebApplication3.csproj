@@ -192,6 +192,10 @@
     <Compile Include="Migrations\201904010805143_PopulateCategoryTable.Designer.cs">
       <DependentUpon>201904010805143_PopulateCategoryTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904050153101_test.cs" />
+    <Compile Include="Migrations\201904050153101_test.Designer.cs">
+      <DependentUpon>201904050153101_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApllicationDbContext.cs" />
@@ -202,6 +206,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\CourseViewModel.cs" />
+    <Compile Include="ViewModel\FutureDate.cs" />
+    <Compile Include="ViewModel\ValidTime.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -286,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904010805143_PopulateCategoryTable.resx">
       <DependentUpon>201904010805143_PopulateCategoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904050153101_test.resx">
+      <DependentUpon>201904050153101_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

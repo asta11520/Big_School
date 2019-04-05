@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -17,13 +18,26 @@ namespace WebApplication3.Controllers
             _dbContext = new ApplicationDbContext();
         }
         // GET: Courses
-        public ActionResult Create()
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CourseViewModel viewModel)
         {
-            var viewModel = new CourseViewModel
+            if (!ModelState.IsValid)
             {
-                Categories = _dbContext.Categories.ToList()
+                viewModel.Categories = _dbContext.Categories.ToList();
+                return View("Create", viewModel);
+            }
+            var course = new Course
+            {
+                LecturerId = User.Identity.GetUserId(),
+                DateTime = viewModel.GetDateTime(),
+                CategoryId = viewModel.Category,
+                Place = viewModel.Place
             };
-            return View(viewModel);
+            _dbContext.Courses.Add(course);
+            _dbContext.SaveChanges();
+            return RedirectToAction("Index","Home");
         }
     }
 }
