@@ -17,6 +17,13 @@ namespace WebApplication3.Controllers
         {
             _dbContext = new ApplicationDbContext();
         }
+
+        [Authorize]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
         // GET: Courses
         [Authorize]
         [HttpPost]
